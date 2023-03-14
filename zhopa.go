@@ -4,6 +4,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/PuerkitoBio/goquery"
 )
 
 func main() {
@@ -20,5 +22,5 @@ func main() {
 		log.Fatal(err)
 	}
 	defer file.Close() //создание файла для записи и обработка ошибок
-
+	httpResp, err := goquery.NewDocumentFromReader(resp.Body)
 }
